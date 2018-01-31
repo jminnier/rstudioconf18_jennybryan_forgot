@@ -48,7 +48,9 @@ ip%>%filter(Built=="3.0.0")
 
 ## if you have time to do more ...
 
-## is every package in .Library either base or recommended? I have no packages in .Library
+## is every package in .Library either base or recommended? 
+## I have no packages in .Library (no! it just is a sym link!)
+## this is from jenny's code
 all_default_pkgs <- list.files(.Library)
 all_br_pkgs <- ip %>%
   filter(Priority %in% c("base", "recommended")) %>%
@@ -66,8 +68,9 @@ ipf <- tbl_df(ipf)
 ipf%>%tabyl(License)%>%arrange(desc(n))%>%head
 
 #' How many packages are by one of the Wickhams?
-ipf <- ipf%>%mutate(by_hadley = str_detect(Author,"Hadley"),
-             by_wickham = str_detect(Author,"Wickham"))
+ipf <- ipf%>%mutate(
+  by_hadley = str_detect(Author,"Hadley"),
+  by_wickham = str_detect(Author,"Wickham"))
 ipf%>%count(by_hadley,by_wickham)
 #' Where's Charlotte?
 ipf%>%filter((!by_hadley)&by_wickham)%>%pull(Author)
