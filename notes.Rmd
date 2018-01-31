@@ -17,7 +17,7 @@ Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 
 ## Morning
 
-- JB says: go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
+- JB has us go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
 - it's ok that things take a long time
 - make things self explaining, don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
 - organize your files and keep readme up to date!
@@ -29,4 +29,13 @@ Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 
 - turn of .RData loading and never ask to save .RData
 - restart R often!
+- no absolute paths
+- use a stable base: `here::here("data","raw-data.csv")` in your project directory, `fs::path_home()`
+- form paths at runtime relative to a stable base
+- normalizePath() makes it work on both windows and mac
+- Rstudio set up a mirror for downloading packages **in** the building! What!
+- use `basename` instead of `strsplit` to get name of file (don't have to specify \ or /)
+- name files and directories as thing_thing-info_thing2 so for instance day_session_topic so you can order and deliminate them later
+
+
 
