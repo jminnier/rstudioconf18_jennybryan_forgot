@@ -1,0 +1,20 @@
+---
+title: "Notes"
+author: "Jessica Minnier"
+date: "1/31/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Links:
+
+Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
+
+# Random thoughts
+
+- JB says: go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
+- it's ok that things take a long time
+
