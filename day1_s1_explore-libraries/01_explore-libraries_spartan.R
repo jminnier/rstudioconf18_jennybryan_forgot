@@ -1,11 +1,14 @@
+#' ---
+#' output: github_document
+#' ---
+
 library(tidyverse)
 library(janitor)
-
+library(fs)
 
 #' Which libraries does R search for packages?
 .Library
 .libPaths()
-library(fs)
 path_real(.Library) # this actually is my true path, the .Library result is a symbolic link!!
 
 #' - reminder to use file.path() or other functions that are made to work with paths, not paste()
@@ -69,3 +72,5 @@ ipf%>%count(by_hadley,by_wickham)
 #' Where's Charlotte?
 ipf%>%filter((!by_hadley)&by_wickham)%>%pull(Author)
 ipf%>%filter((!by_hadley)&by_wickham)%>%pull(Package)
+
+devtools::session_info()
