@@ -1,4 +1,4 @@
-Notes
+Notes - Things They Forgot to Teach You In R, rstuido::conf18
 ================
 Jessica Minnier
 1/31/2018
@@ -42,10 +42,14 @@ Side note from my own issues in moving this repo to github
 
 How to add an existing Rstudio repo to github:
 
-This has changed since [git 2.9](https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories), now when you add remote and then pull you need a special option.
+This has changed since [git 2.9](https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories), now when you add remote and then pull you need a special option. This only needs to happen if you added a Readme. Just don't do this and life will be easier.
 
     git remote add origin https://github.com/jminnier/rstudioconf18_jennybryan_forgot.git
     git pull origin master --allow-unrelated-histories
+
+Most easy option from [happywithgitr](http://happygitwithr.com/existing-github-last.html)
+
+    usethis::use_github()
 
 Afternoon - git/github
 ----------------------
@@ -70,3 +74,14 @@ Afternoon - git/github
 
 -   now github will render the resulting .md file this to look pretty nice!
 -   source only hard-liners say don't version control output (only source code). but this makes it really useful to see what the output looks like and how it changes.
+-   JB takeaway 1: if you want to make your stuff immediately consumable, rending to markdown and commiting that at the same time as the R file, gives something others can look at with little to no effort (be kind and be realistic!)
+-   JB takeaway 2: markdown is vastly more useful than .html and .pdf (on github)
+-   More about github\_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
+-   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
+
+Q's
+===
+
+-   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
+-   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github\_document, is there a way to always generate both? you can "keep md" but can you "keep github\_document"? Sort of, but you need to use `rmarkdown::render` (in theory though JB can't get it to work yet for github\_docs)
+-   why is `fs` package making Rstudio crash every time I want to view an object created with it? My be related to this [issue](https://github.com/r-lib/fs/issues/58)

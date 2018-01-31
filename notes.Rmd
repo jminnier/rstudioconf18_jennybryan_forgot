@@ -1,5 +1,5 @@
 ---
-title: "Notes"
+title: "Notes - Things They Forgot to Teach You In R, rstuido::conf18"
 author: "Jessica Minnier"
 date: "1/31/2018"
 output: github_document
@@ -43,12 +43,19 @@ To use "in building" mirror: `options(repos = c(CRAN = "https://cran.rstudio.com
 
 How to add an existing Rstudio repo to github:
 
-This has changed since [git 2.9](https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories), now when you add remote and then pull you need a special option.
+This has changed since [git 2.9](https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories), now when you add remote and then pull you need a special option. This only needs to happen if you added a Readme. Just don't do this and life will be easier.
 
 ```
 git remote add origin https://github.com/jminnier/rstudioconf18_jennybryan_forgot.git
 git pull origin master --allow-unrelated-histories
 ```
+
+Most easy option from [happywithgitr](http://happygitwithr.com/existing-github-last.html)
+
+```
+usethis::use_github()
+```
+
 
 ## Afternoon - git/github
 
@@ -81,6 +88,6 @@ git pull origin master --allow-unrelated-histories
 # Q's
 
 - what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
-- why is `fs` package making Rstudio crash every time I want to view an object created with it?
-- in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github_document, is there a way to always generate both? you can "keep md" but can you "keep github_document"?
+- in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github_document, is there a way to always generate both? you can "keep md" but can you "keep github_document"? Sort of, but you need to use `rmarkdown::render` (in theory though JB can't get it to work yet for github_docs)
+- why is `fs` package making Rstudio crash every time I want to view an object created with it? My be related to this [issue](https://github.com/r-lib/fs/issues/58)
 
