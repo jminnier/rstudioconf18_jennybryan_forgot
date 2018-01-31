@@ -72,4 +72,15 @@ git pull origin master --allow-unrelated-histories
 ```
 - now github will render the resulting .md file this to look pretty nice!
 - source only hard-liners say don't version control output (only source code). but this makes it really useful to see what the output looks like and how it changes.
+- JB takeaway 1: if you want to make your stuff immediately consumable, rending to markdown and commiting that at the same time as the R file, gives something others can look at with little to no effort (be kind and be realistic!)
+- JB takeaway 2: markdown is vastly more useful than .html and .pdf (on github)
+- More about github_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
+- files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
+
+
+# Q's
+
+- what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
+- why is `fs` package making Rstudio crash every time I want to view an object created with it?
+- in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github_document, is there a way to always generate both? you can "keep md" but can you "keep github_document"?
 
