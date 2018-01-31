@@ -15,6 +15,8 @@ Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 
 # Random thoughts
 
+## Morning
+
 - JB says: go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
 - it's ok that things take a long time
 - make things self explaining, don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
@@ -22,4 +24,9 @@ Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 - "unless you can keep it current, don't write it"
 - it helps to know about your R installation and where packages go in order to make a package
 - new package `fs`, helps us work with file paths. note, don't use paste() to work with file paths like they are strings, they are not!
+
+## Mid-morning
+
+- turn of .RData loading and never ask to save .RData
+- restart R often!
 
