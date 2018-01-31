@@ -63,7 +63,7 @@ ip%>%mutate(has_dot = str_detect(Package,pattern=fixed(".")),
 ## use `fields` argument to installed.packages() to get more info and use it!
 ipf <- installed.packages(fields = c("License","Author"))
 ipf <- tbl_df(ipf)
-ipf%>%tabyl(License)%>%arrange(desc(n))
+ipf%>%tabyl(License)%>%arrange(desc(n))%>%head
 
 #' How many packages are by one of the Wickhams?
 ipf <- ipf%>%mutate(by_hadley = str_detect(Author,"Hadley"),
