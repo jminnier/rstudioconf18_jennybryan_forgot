@@ -9,6 +9,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
+
 # Links:
 
 Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)

@@ -3,6 +3,8 @@ Notes - Things They Forgot to Teach You In R, rstuido::conf18
 Jessica Minnier
 1/31/2018
 
+Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
+
 Links:
 ======
 
