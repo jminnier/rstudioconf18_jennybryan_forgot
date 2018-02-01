@@ -49,23 +49,17 @@ library(repurrrsive)
 ## https://github.com/brooke-watson/BRRR
 ## devtools::install_github("brooke-watson/BRRR")
 library(BRRR)
-## Error in library(BRRR): there is no package called 'BRRR'
 
 skrrrahh(2)
-## Error in skrrrahh(2): could not find function "skrrrahh"
 skrrrahh(35)
-## Error in skrrrahh(35): could not find function "skrrrahh"
 skrrrahh("bigsean5")
-## Error in skrrrahh("bigsean5"): could not find function "skrrrahh"
 
 for(i in 1:5) {
   Sys.sleep(0.75)
   skrrrahh(i)
 }
-## Error in skrrrahh(i): could not find function "skrrrahh"
 
 walk(1:5, ~{Sys.sleep(0.75); BRRR::skrrrahh(.x)})
-## Error in loadNamespace(name): there is no package called 'BRRR'
 
 f <- function(sound, sleep = 0.75) {
   Sys.sleep(sleep)
@@ -73,7 +67,6 @@ f <- function(sound, sleep = 0.75) {
 }
 
 walk(30:35, f)
-## Error in skrrrahh(sound): could not find function "skrrrahh"
 
 ## Hello Game of Thrones characters + list inspection ----
 
@@ -653,6 +646,7 @@ str(got_chars)
 ##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
 ##   ..$ playedBy   : chr "Sophie Turner"
 
+
 View(got_chars)
 ## Error in (function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, : arguments imply differing number of rows: 1, 3, 4, 2, 6
 # use the object viewer and it's code generation to get ...
@@ -1106,8 +1100,195 @@ lapply(got_chars, function(x) x[[3]])
 
 ## Use names() to get the names of the list elements associated with a single
 ## character.
+names(got_chars[[1]])
+##  [1] "url"         "id"          "name"        "gender"      "culture"    
+##  [6] "born"        "died"        "alive"       "titles"      "aliases"    
+## [11] "father"      "mother"      "spouse"      "allegiances" "books"      
+## [16] "povBooks"    "tvSeries"    "playedBy"
 ## What's the position of the "playedBy" element?
+match("playedBy",names(got_chars[[1]]))
+## [1] 18
 ## Use string and position shortcuts to extract playedBy for all characters.
+map(got_chars, "playedBy")
+## [[1]]
+## [1] "Alfie Allen"
+## 
+## [[2]]
+## [1] "Peter Dinklage"
+## 
+## [[3]]
+## [1] ""
+## 
+## [[4]]
+## [1] "Bronson Webb"
+## 
+## [[5]]
+## [1] "DeObia Oparei"
+## 
+## [[6]]
+## [1] ""
+## 
+## [[7]]
+## [1] "Oliver Ford"
+## 
+## [[8]]
+## [1] ""
+## 
+## [[9]]
+## [1] "Emilia Clarke"
+## 
+## [[10]]
+## [1] "Liam Cunningham"
+## 
+## [[11]]
+## [1] "Maisie Williams"
+## 
+## [[12]]
+## [1] ""
+## 
+## [[13]]
+## [1] "Gemma Whelan"
+## 
+## [[14]]
+## [1] "Ian McElhinney"
+## 
+## [[15]]
+## [1] ""
+## 
+## [[16]]
+## [1] "Isaac Hempstead-Wright"
+## 
+## [[17]]
+## [1] "Gwendoline Christie"
+## 
+## [[18]]
+## [1] "Michelle Fairley"
+## 
+## [[19]]
+## [1] "Lena Headey"
+## 
+## [[20]]
+## [1] "Sean Bean"       "Sebastian Croft" "Robert Aramayo" 
+## 
+## [[21]]
+## [1] "Nikolaj Coster-Waldau"
+## 
+## [[22]]
+## [1] ""
+## 
+## [[23]]
+## [1] "Kit Harington"
+## 
+## [[24]]
+## [1] "Michael Feast"
+## 
+## [[25]]
+## [1] "Ian Gelder"
+## 
+## [[26]]
+## [1] "Carice van Houten"
+## 
+## [[27]]
+## [1] ""
+## 
+## [[28]]
+## [1] ""
+## 
+## [[29]]
+## [1] "John Bradley-West"
+## 
+## [[30]]
+## [1] "Sophie Turner"
+map(got_chars, 18)
+## [[1]]
+## [1] "Alfie Allen"
+## 
+## [[2]]
+## [1] "Peter Dinklage"
+## 
+## [[3]]
+## [1] ""
+## 
+## [[4]]
+## [1] "Bronson Webb"
+## 
+## [[5]]
+## [1] "DeObia Oparei"
+## 
+## [[6]]
+## [1] ""
+## 
+## [[7]]
+## [1] "Oliver Ford"
+## 
+## [[8]]
+## [1] ""
+## 
+## [[9]]
+## [1] "Emilia Clarke"
+## 
+## [[10]]
+## [1] "Liam Cunningham"
+## 
+## [[11]]
+## [1] "Maisie Williams"
+## 
+## [[12]]
+## [1] ""
+## 
+## [[13]]
+## [1] "Gemma Whelan"
+## 
+## [[14]]
+## [1] "Ian McElhinney"
+## 
+## [[15]]
+## [1] ""
+## 
+## [[16]]
+## [1] "Isaac Hempstead-Wright"
+## 
+## [[17]]
+## [1] "Gwendoline Christie"
+## 
+## [[18]]
+## [1] "Michelle Fairley"
+## 
+## [[19]]
+## [1] "Lena Headey"
+## 
+## [[20]]
+## [1] "Sean Bean"       "Sebastian Croft" "Robert Aramayo" 
+## 
+## [[21]]
+## [1] "Nikolaj Coster-Waldau"
+## 
+## [[22]]
+## [1] ""
+## 
+## [[23]]
+## [1] "Kit Harington"
+## 
+## [[24]]
+## [1] "Michael Feast"
+## 
+## [[25]]
+## [1] "Ian Gelder"
+## 
+## [[26]]
+## [1] "Carice van Houten"
+## 
+## [[27]]
+## [1] ""
+## 
+## [[28]]
+## [1] ""
+## 
+## [[29]]
+## [1] "John Bradley-West"
+## 
+## [[30]]
+## [1] "Sophie Turner"
 
 ## Type-specific map w/ string or position shortcuts ----
 map_chr(got_chars, "name")
@@ -1126,16 +1307,59 @@ map_chr(got_chars, "name")
 ## Exercises
 
 ## Get an integer vector of character "id"s, using the string shortcut.
+map_int(got_chars, "id")
+##  [1] 1022 1052 1074 1109 1166 1267 1295  130 1303 1319  148  149  150  168
+## [15] 2066  208  216  232  238  339  529  576  583   60  605  743  751  844
+## [29]  954  957
 
 ## Get the same integer vector again, using the integer position shortcut.
+map_int(got_chars, match("id",names(got_chars[[1]])))
+##  [1] 1022 1052 1074 1109 1166 1267 1295  130 1303 1319  148  149  150  168
+## [15] 2066  208  216  232  238  339  529  576  583   60  605  743  751  844
+## [29]  954  957
 
 ## Get the same vector again, using map() and then flatten_int()
+map(got_chars, "id") %>% flatten_int()
+##  [1] 1022 1052 1074 1109 1166 1267 1295  130 1303 1319  148  149  150  168
+## [15] 2066  208  216  232  238  339  529  576  583   60  605  743  751  844
+## [29]  954  957
 
 ## Inspect the info for one specific character (just pick one).
+str(got_chars[[1]])
+## List of 18
+##  $ url        : chr "https://www.anapioficeandfire.com/api/characters/1022"
+##  $ id         : int 1022
+##  $ name       : chr "Theon Greyjoy"
+##  $ gender     : chr "Male"
+##  $ culture    : chr "Ironborn"
+##  $ born       : chr "In 278 AC or 279 AC, at Pyke"
+##  $ died       : chr ""
+##  $ alive      : logi TRUE
+##  $ titles     : chr [1:3] "Prince of Winterfell" "Captain of Sea Bitch" "Lord of the Iron Islands (by law of the green lands)"
+##  $ aliases    : chr [1:4] "Prince of Fools" "Theon Turncloak" "Reek" "Theon Kinslayer"
+##  $ father     : chr ""
+##  $ mother     : chr ""
+##  $ spouse     : chr ""
+##  $ allegiances: chr "House Greyjoy of Pyke"
+##  $ books      : chr [1:3] "A Game of Thrones" "A Storm of Swords" "A Feast for Crows"
+##  $ povBooks   : chr [1:2] "A Clash of Kings" "A Dance with Dragons"
+##  $ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##  $ playedBy   : chr "Alfie Allen"
 ## Which element is logical?
+which(map_chr(got_chars[[1]],class)=="logical")
+## alive 
+##     8
 ## What's its name?
+names(which(map_chr(got_chars[[1]],class)=="logical"))
+## [1] "alive"
 ## What's its position?
+as.numeric(which(map_chr(got_chars[[1]],class)=="logical"))
+## [1] 8
 ## Use map_lgl() to get a logical vector of these across all characters.
+map_lgl(got_chars,"alive")
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+## [12] FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+## [23]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE
 
 ## Extract multiple things ----
 got_chars[[3]][c("name", "culture", "gender", "born")]
@@ -1574,9 +1798,33 @@ x
 View(x)
 
 ## Inspect the info for one specific character (just pick one).
+str(got_chars[[1]])
+## List of 18
+##  $ url        : chr "https://www.anapioficeandfire.com/api/characters/1022"
+##  $ id         : int 1022
+##  $ name       : chr "Theon Greyjoy"
+##  $ gender     : chr "Male"
+##  $ culture    : chr "Ironborn"
+##  $ born       : chr "In 278 AC or 279 AC, at Pyke"
+##  $ died       : chr ""
+##  $ alive      : logi TRUE
+##  $ titles     : chr [1:3] "Prince of Winterfell" "Captain of Sea Bitch" "Lord of the Iron Islands (by law of the green lands)"
+##  $ aliases    : chr [1:4] "Prince of Fools" "Theon Turncloak" "Reek" "Theon Kinslayer"
+##  $ father     : chr ""
+##  $ mother     : chr ""
+##  $ spouse     : chr ""
+##  $ allegiances: chr "House Greyjoy of Pyke"
+##  $ books      : chr [1:3] "A Game of Thrones" "A Storm of Swords" "A Feast for Crows"
+##  $ povBooks   : chr [1:2] "A Clash of Kings" "A Dance with Dragons"
+##  $ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##  $ playedBy   : chr "Alfie Allen"
 ## What's the integer position of these elements:
 ## "name", "gender", "culture", "born", and "died".
+(tmpind <- match(c( "name", "gender", "culture", "born", "died"),names(got_chars[[1]])))
+## [1] 3 4 5 6 7
 ## Map `[` over characters by INTEGER POSITIONS instead of name.
+x <- map(got_chars, `[`, tmpind)
+View(x)
 
 ## Extract multiple things into data frame rows ----
 map_dfr(got_chars, `[`, c("name", "culture", "gender", "id", "born", "alive"))
@@ -1596,7 +1844,68 @@ map_dfr(got_chars, `[`, c("name", "culture", "gender", "id", "born", "alive"))
 ## # ... with 20 more rows
 
 ## Try to do similar with "name" and "titles".
+map_dfr(got_chars, `[`, c("name", "titles"))
+## Error in bind_rows_(x, .id): Argument 2 must be length 1, not 3
 ## What happens? Why? Can you think of another way to get that job done?
+# different lengths, could paste together first? or make a list column
+# pasting
+tibble(
+  name = map_chr(got_chars,"name"),
+  titles = map(got_chars,"titles") %>% map(.,~paste(.x,collapse=", ")) %>% flatten_chr 
+)
+## # A tibble: 30 x 2
+##    name               titles                                              
+##    <chr>              <chr>                                               
+##  1 Theon Greyjoy      Prince of Winterfell, Captain of Sea Bitch, Lord of…
+##  2 Tyrion Lannister   Acting Hand of the King (former), Master of Coin (f…
+##  3 Victarion Greyjoy  Lord Captain of the Iron Fleet, Master of the Iron …
+##  4 Will               ""                                                  
+##  5 Areo Hotah         Captain of the Guard at Sunspear                    
+##  6 Chett              ""                                                  
+##  7 Cressen            Maester                                             
+##  8 Arianne Martell    Princess of Dorne                                   
+##  9 Daenerys Targaryen Queen of the Andals and the Rhoynar and the First M…
+## 10 Davos Seaworth     Ser, Lord of the Rainwood, Admiral of the Narrow Se…
+## # ... with 20 more rows
+tibble(
+  name = map_chr(got_chars,"name"),
+  titles = map(got_chars,"titles") %>% map(.,paste,collapse=", ") %>% flatten_chr 
+)
+## # A tibble: 30 x 2
+##    name               titles                                              
+##    <chr>              <chr>                                               
+##  1 Theon Greyjoy      Prince of Winterfell, Captain of Sea Bitch, Lord of…
+##  2 Tyrion Lannister   Acting Hand of the King (former), Master of Coin (f…
+##  3 Victarion Greyjoy  Lord Captain of the Iron Fleet, Master of the Iron …
+##  4 Will               ""                                                  
+##  5 Areo Hotah         Captain of the Guard at Sunspear                    
+##  6 Chett              ""                                                  
+##  7 Cressen            Maester                                             
+##  8 Arianne Martell    Princess of Dorne                                   
+##  9 Daenerys Targaryen Queen of the Andals and the Rhoynar and the First M…
+## 10 Davos Seaworth     Ser, Lord of the Rainwood, Admiral of the Narrow Se…
+## # ... with 20 more rows
+# list columns
+tibble(
+  name = map_chr(got_chars, "name"),
+  titles = map(got_chars, "titles")
+)
+## # A tibble: 30 x 2
+##    name               titles   
+##    <chr>              <list>   
+##  1 Theon Greyjoy      <chr [3]>
+##  2 Tyrion Lannister   <chr [2]>
+##  3 Victarion Greyjoy  <chr [2]>
+##  4 Will               <chr [1]>
+##  5 Areo Hotah         <chr [1]>
+##  6 Chett              <chr [1]>
+##  7 Cressen            <chr [1]>
+##  8 Arianne Martell    <chr [1]>
+##  9 Daenerys Targaryen <chr [5]>
+## 10 Davos Seaworth     <chr [4]>
+## # ... with 20 more rows
+
+
 
 ## go back to slides to remind ourselves .f can be more general
 
@@ -1625,7 +1934,7 @@ glue_data(got_chars[[2]], "{name} was born {born}.")
 glue_data(got_chars[[9]], "{name} was born {born}.")
 ## Daenerys Targaryen was born In 284 AC, at Dragonstone.
 
-## drop this code into map()
+## drop this code into map() - make sure it works before using type specific
 map(got_chars, ~ glue_data(.x, "{name} was born {born}."))
 ## [[1]]
 ## Theon Greyjoy was born In 278 AC or 279 AC, at Pyke.
