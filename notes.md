@@ -79,9 +79,26 @@ Afternoon - git/github
 -   More about github\_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
 -   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
 
+Afternoon
+=========
+
+-   to upload an existing git directory to github without going through all the steps, just do `usethis::use_github()`!!!
+-   JB showing that .R and .Rmd can make same github\_document output
+-   Good options for knitr:
+
+        knitr::opts_chunk$set(
+              collapse = TRUE,
+              comment = "#>",
+              out.width = "100%"
+        )
+
+-   git can detect simmple push conflicts (i.e. you forgot to pull first)
+-   if you are collaborating on code: commit and push (and pull) often, so that you make small changes that git's troubleshooting push fail algorithm can handle it; "sync to the mothership really often"
+-   also working with binary files like pdf makes this really hard since git can't look inside them to figure out what the problem is. so, don't put them in your repo very often!
+
 Q's
 ===
 
 -   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
--   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github\_document, is there a way to always generate both? you can "keep md" but can you "keep github\_document"? Sort of, but you need to use `rmarkdown::render` (in theory though JB can't get it to work yet for github\_docs)
--   why is `fs` package making Rstudio crash every time I want to view an object created with it? My be related to this [issue](https://github.com/r-lib/fs/issues/58)
+-   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github\_document, is there a way to always generate both? you can "keep md" but can you "keep github\_document"? Sort of, but you need to use `rmarkdown::render` (in theory, though JB can't get it to work yet for github\_docs...)
+-   why is `fs` package making Rstudio crash every time I want to view an object created with it? May be related to this [issue](https://github.com/r-lib/fs/issues/58)
