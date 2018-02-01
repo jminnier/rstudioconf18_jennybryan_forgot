@@ -1,7 +1,7 @@
 Notes - Things They Forgot to Teach You In R, rstudio::conf18
 ================
 Jessica Minnier
-1/31/2018
+1/31/2018 and 2/1/2018
 
 Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
 
@@ -217,6 +217,13 @@ tibble(
 #> 5 Areo Hotah        <chr [1]>
 #> 6 Chett             <chr [1]>
 ```
+
+-   workflow:
+    -   do something easy with iterative machine
+    -   do real hard thing with one representative unit
+    -   do hard thing with iterative machine
+-   `pmap` can iterate over every row of a data frame, including and most especially tibbles where you have list columns
+-   after the break we will have "choose your own adventure" time
 
 Q's
 ===

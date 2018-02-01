@@ -1,7 +1,7 @@
 ---
 title: "Notes - Things They Forgot to Teach You In R, rstudio::conf18"
 author: "Jessica Minnier"
-date: "1/31/2018"
+date: "1/31/2018 and 2/1/2018"
 output: github_document
 ---
 
@@ -209,7 +209,8 @@ tibble(
     + do something easy with iterative machine
     + do real hard thing with one representative unit
     + do hard thing with iterative machine
-- `pmap` can iterate over every row of a data frame
+- `pmap` can iterate over every row of a data frame, including and most especially tibbles where you have list columns
+- after the break we will have "choose your own adventure" time
 
 # Q's
 
