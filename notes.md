@@ -1,4 +1,4 @@
-Notes - Things They Forgot to Teach You In R, rstuido::conf18
+Notes - Things They Forgot to Teach You In R, rstudio::conf18
 ================
 Jessica Minnier
 1/31/2018
@@ -6,21 +6,21 @@ Jessica Minnier
 Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
 
 Links:
-======
+------
 
 Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 
 To use "in building" mirror: `options(repos = c(CRAN = "https://cran.rstudio.com/"))`
 
 Random thoughts
-===============
+---------------
 
 Day 1: Morning - library exploration
 ------------------------------------
 
 -   JB has us go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
 -   it's ok that things take a long time
--   make things self explaining (good filenames - see https://speakerdeck.com/jennybc/how-to-name-files), don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
+-   make things self explaining (good filenames - see <https://speakerdeck.com/jennybc/how-to-name-files>), don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
 -   organize your files and keep your readme up to date!
 -   "unless you can keep it current (maintain it), don't write it"
 -   it helps to know about your R installation and where packages go in order to make a package
@@ -58,18 +58,18 @@ Day 1: Afternoon - git/github
 
 -   git is scary but you should learn the 3 things you always have to do (commit, push, pull) and just do them over and over until you are comfortable ("get off the beach!")
 -   easier to start from github then go to rstudio (sad)
-- if you are more of a visual thinker, you might like useing a graphical front end for git, like SourceTree or GitKraken
+-   if you are more of a visual thinker, you might like useing a graphical front end for git, like SourceTree or GitKraken
 -   when you clone a repo in Rstudio and copy the ssh (or https) into the prompt, then press TAB, it will auto-fill the name of the repo into the next field!
-- if you want to collaborate on someone else's repo, best practice to (1) fork their repo so you have a copy in your GitHub (2) then clone this to your local git repo. This will keep links, so that later you can push your changes to your GitHub repo and then issue a pull request to original owner.
+-   if you want to collaborate on someone else's repo, best practice to (1) fork their repo so you have a copy in your GitHub (2) then clone this to your local git repo. This will keep links, so that later you can push your changes to your GitHub repo and then issue a pull request to original owner.
 -   in git commit: two yellow question marks: local file git has never seen before
 -   jenny commits her .Rproj (this is controversial)
--   intermediate step "staging" tells git you do want these files to be part of the next commit, this way you can commit files separately. 
-- Staging - put things that are ready to mail in a box, Commit - mail the whole box.
+-   intermediate step "staging" tells git you do want these files to be part of the next commit, this way you can commit files separately.
+-   Staging - put things that are ready to mail in a box, Commit - mail the whole box.
 -   use conventional file extensions so that github can show you customized diffs
 -   jenny thinks putting derived products in version control is a good idea (i.e. html from Rmds), but not binary files (word files, pdfs)
 -   jim hester will show us how github makes it easy to search code
 -   when using workbook button from .R files we get a html report (jenny says html maybe not best option, more later)
-- note to knit to pdf, start by installing tinytex package, then run tinytex::install_tinytex, then you are able to knit to PDF
+-   note to knit to pdf, start by installing tinytex package, then run tinytex::install\_tinytex, then you are able to knit to PDF
 -   oh yeah, html does not look good on github =( too raw!
 -   mullet: what you need to write (.R, .Rmd) = this business in front; what you want to read/see (.html, .md) = party in the back (or is it the other way around?)
 -   .html is not useful but .md is very useful for github; use YAML:
@@ -86,11 +86,11 @@ Day 1: Afternoon - git/github
 -   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
 
 Day 1: Afternoon after break
-============================
+----------------------------
 
 -   to upload an existing git directory to github without going through all the steps, just do `usethis::use_github()`!!!
 -   JB showing that .R and .Rmd can make same github\_document output
-- You can make your README.md into a webpage by changing settings in GitHub. Go to your repo, click 'Settings', scroll way down to GitHub pages, change Source to Master, and choose a theme. Can add links to other .md files in the same repo by inserting this into README.md file: [displayname](link.md)
+-   You can make your README.md into a webpage by changing settings in GitHub. Go to your repo, click 'Settings', scroll way down to GitHub pages, change Source to Master, and choose a theme. Can add links to other .md files in the same repo by inserting this into README.md file: [displayname](link.md)
 -   Good options for knitr:
 
         knitr::opts_chunk$set(
@@ -103,8 +103,15 @@ Day 1: Afternoon after break
 -   if you are collaborating on code: commit and push (and pull) often, so that you make small changes that git's troubleshooting push fail algorithm can handle it; "sync to the mothership really often"
 -   also working with binary files like pdf makes this really hard since git can't look inside them to figure out what the problem is. so, don't put them in your repo very often! (.gitignore)
 -   use githooks to avoid pushing files that have conflicts (they can look for the markers from the merge conflict)
-- if you have made conflicting commits to your local version and remote version, push will be rejected. Pull first and fix conflicts. If this does not work, consider git reset. If this does not work, consider renaming local repo to borked-repo, pull remote, then selectively copy over new useful files from borked-repo
+-   if you have made conflicting commits to your local version and remote version, push will be rejected. Pull first and fix conflicts. If this does not work, consider git reset. If this does not work, consider renaming local repo to borked-repo, pull remote, then selectively copy over new useful files from borked-repo
 -   you can search github for code snippets (I need to do this more!), such as: ["llply" user:cran language:R](https://github.com/search?l=r&q=%22llply%22+user%3Acran+language%3AR&ref=searchresults&type=Code&utf8=%E2%9C%93); Jim Hester will talk more about this tomorrow
+
+Day 2 Morning
+-------------
+
+-   Jim Hester is teaching us how to use github search, for example `read_csv OR read_delim col_type language:R extension:.R` looks for examples of using the `col_type` argument in `read_csv` or `read_delim` functions
+-   if the documentation doesn't answer your questions, use github search to find examples
+-   example search: `user:cran onAttach` will search CRAN packages that use the function `onAttach`
 
 Q's
 ===
