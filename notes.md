@@ -142,8 +142,81 @@ Day 2 morning, JB start up files
     -   `utils::rc.settings(ipck=TRUE)` = yes autocomplete package names
 -   don't load packages in .Rprofile because you will be using functions other people can't without loading
     -   though JB still loads "workflow packages" since low risk for irreproducible code: devtools, usethis, remotes, testthat, reprex
--   can populate description file automatically
+-   can populate description file automatically (see JB's .Rprofile)
 -   interesting package to maintain these types of files: [HenrikBengtsson/startup](https://github.com/HenrikBengtsson/startup)
+
+Day 2 Morning after break - github project example
+--------------------------------------------------
+
+-   github etiquette: use `#` in front of numbers to link to issues, words like "Fixes" are keywords that can close issues [see more on github](https://help.github.com/articles/closing-issues-using-keywords/)
+-   plan for revisiting analyses/projects (like 10x more than you thought you would)
+-   refine and extend! make your code more readable, efficient, resilient, general
+-   beware of monoliths! i.e one script and a workspace, much better to break logic and ouput into smaller pieces; divide and conquer; i.e. making figures is separate from modeling
+-   make scripts based on the different steps in the analysis pipeline (see slide 17 [slides/day2\_slides2\_project-api.pdf](slides/day2_slides2_project-api.pdf))
+-   make outputs separate based on their uses rather than a giant RData file
+-   practice "safe paths"! use `here` package to do this; works on my machine and on yours, also works with knitr and rmarkdown! rmarkdown sets workign directory where .Rmd file is, but `here` can get around this if you have subdirectories
+
+``` r
+library(here)
+here()
+here("day1_s1_explore-libraries")
+cat(readLines(here("day1_s2_copy-files/","00_filesystem-practice_comfy.R")))
+```
+
+-   we had an excerise of forking a [repo](github.com/jennybc/packages-report) and adding code to files along with documentation in the readme.
+-   there are R packages that are similar to `make`, such as remake (more to come after lunch)
+
+Day 2 Afternoon - make-like, live purrr coding, API example
+-----------------------------------------------------------
+
+-   you can view csv files in github (better to do this than opening in excel!)
+-   you can ammend commits if you haven't pushed yet
+-   github can show you diffs of .png files, useful for seeing progression of plots
+-   having projects in smaller pieces allows people to come into the code at the middle
+-   JB's [repo solution](github.com/jennybc/packages-report-EXAMPLE)
+-   the table of file organization in JB's [readme](https://github.com/jennybc/packages-report-EXAMPLE/blob/master/README.Rmd) is quite useful
+-   Kirill Muller is telling us about `drake`, [repo](https://github.com/krlmlr/drake-pitch) and [slides](https://krlmlr.github.io/drake-pitch/)
+-   drake will look at your code and run what needs to be updated
+-   make gives you all kinds of problems that drake does not
+-   use `drake_plan()` to map out your analysis plan that needs to be updated
+-   `drake::loadd()` can load data or an object or a plot, updated based on your plan
+-   how much complexity can this handle? KM used to use remake, where you specify plans with YAML files, and he had YAML files up to 6 mb, so very complex workflows
+-   JB live coding `purrr` here: [rstd.io/jenny-live-code](rstd.io/jenny-live-code), using dropbox with url trick to make it render in the browser: use the the `raw=1` query <https://www.dropbox.com/s/2b8mi4rir23pvnx/jenny-live-code.R?raw=1>
+-   it took JB a long time to embrace `plyr`, she stuck with `apply` for a while, until she read the `plyr` paper and finally "got it"
+-   get good at iteration, really really good!
+-   `repurrrsive` is a package to learn `purrr` based on recursive lists
+-   API is good example since it comes as json which is inherently a list and cannot be a rectangle right away
+-   lists: one bracket is how you get multiple things, 2 brackets is how you get one thing (via twitter via hadley's workshop)
+-   [BRRR](https://github.com/brooke-watson/BRRR): package to play sound snippets
+-   `purrr:walk()` replaces a for loop + a function, either through a formula `~` or a function
+-   `View(listname)` is great in Rstudio, much easier to look at than super long `str(listname)`
+-   `str(listname, list.len=3)` and `str(listname, max.level=1)` make `str` more manageable
+-   side note, `wesanderson` color palettes in `repurrrsive` are awesome!
+-   normally don't grow things inside lists or else R will get slow, need to designate space in advance, but `map` and `lapply` deal with those bookkeeping tasks
+-   return results "like so" = `map_*` such as `map_dbl`
+-   `map_dfr(minis, '[', c("pants","torso","head"))` = get all these things and put them in a df!
+-   why use `map` over `lapply`? some syntaxical sugar that makes things simpler and shorter
+-   `flatten_int` can flatten lists
+-   `map_chr(,.default = NA)` sets a default value of NA if it is missing; but it doesn't replace "" with NA
+-   can't use `map_chr` if `map` returns items with different lengths--you will get an error; if you tried `sapply` on this it would just give you a list back (maybe not what you are expecting!)
+-   code that can make list columns from map:
+
+``` r
+library(repurrrsive)
+tibble(
+  name = map_chr(got_chars, "name"),
+  titles = map(got_chars, "titles")
+) %>% head
+#> # A tibble: 6 x 2
+#>   name              titles   
+#>   <chr>             <list>   
+#> 1 Theon Greyjoy     <chr [3]>
+#> 2 Tyrion Lannister  <chr [2]>
+#> 3 Victarion Greyjoy <chr [2]>
+#> 4 Will              <chr [1]>
+#> 5 Areo Hotah        <chr [1]>
+#> 6 Chett             <chr [1]>
+```
 
 Q's
 ===
