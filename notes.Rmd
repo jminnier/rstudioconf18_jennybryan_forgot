@@ -41,7 +41,7 @@ Day 1: Mid-morning - file copying and naming, projects
 -   normalizePath() makes it work on both windows and mac
 -   Rstudio set up a mirror for downloading packages **in** the building! Whaaattt!
 -   use `basename` instead of `strsplit` to get name of file from a path (don't have to specify  or /)
--   name files and directories as thing\_thing-info\_thing2 so for instance day\_session\_topic so you can order and delimit them later
+-   name files and directories as thing_thing-info_thing2 so for instance day_session_topic so you can order and delimit them later
 
 Side note from my own issues in moving this repo to github
 ----------------------------------------------------------
@@ -90,14 +90,14 @@ usethis::use_github()
 -   source: only hard-liners say don't version control output (only source code). but having .md files or .html files makes it really useful to see what the output looks like and how it changes.
 -   JB takeaway 1: if you want to make your stuff immediately consumable, rendering to markdown and commiting that at the same time as the R file, gives something others can look at with little to no effort (be kind and be realistic!)
 -   JB takeaway 2: markdown is vastly more useful than .html and .pdf (on github)
--   More about github\_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
+-   More about github_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
 -   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
 
 
 ## Day 1: Afternoon after break
 
 -   to upload an existing git directory to github without going through all the steps, just do `usethis::use_github()`!!!
--   JB showing that .R and .Rmd can make same github\_document output
+-   JB showing that .R and .Rmd can make same github_document output
 - You can make your README.md into a webpage by changing settings in GitHub. Go to your repo, click 'Settings', scroll way down to GitHub pages, change Source to Master, and choose a theme. Can add links to other .md files in the same repo by inserting this into README.md file: [displayname](link.md)
 -   Good options for knitr:
 ```
@@ -126,5 +126,5 @@ knitr::opts_chunk$set(
 
 
 -   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
--   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github\_document, is there a way to always generate both? you can "keep md" but can you "keep github\_document"? Sort of, but you need to use `rmarkdown::render` (in theory, though JB can't get it to work yet for github\_docs...)
+-   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github_document, is there a way to always generate both? you can "keep md" but can you "keep github_document"? Sort of, but you need to use `rmarkdown::render` (in theory, though JB can't get it to work yet for github_docs...)
 -   why is `fs` package making Rstudio crash every time I want to view an object created with it? May be related to this [issue](https://github.com/r-lib/fs/issues/58)
