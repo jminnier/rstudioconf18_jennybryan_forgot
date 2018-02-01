@@ -125,11 +125,45 @@ library(lookup)
 lookup(knitr::knit)
 ```
 - JB: if you are reporting a bug or requesting an addition, be as specific as possible
+
+## Day 2 morning, JB start up files
+
 - re: installing packages after an update: you can install them organically as you go, this is a good way to perform "spring cleaning" (JB and [@LucyStats](twitter.com/lucystats) are in favor of this). However, Jim Hester has a package for this, too! [jimhester/autoinst](github.com/jimhester/autoinst) (but maybe try not to break it/find issues ;))
-- 
+- github search for "dotfiles" shows people's repos of dotfiles
+- very useful links from JB's repo:
+    + Kevin Ushey blog post on `.Rprofile` [RProfile Essentials](http://kevinushey.github.io/blog/2015/02/02/rprofile-essentials/)
+    + Kevin's [etc repo](https://github.com/kevinushey/etc) for dotfiles and the like
+    + Shaun Jackman's [dotfiles repo](https://github.com/sjackman/dotfiles)
+- examples of good options to turn on:
+    + `warnPartialMatchAttr = TRUE`, etc = no autocomplete!
+    + `utils::rc.settings(ipck=TRUE)`  = yes autocomplete package names
+- don't load packages in .Rprofile because you will be using functions other people can't without loading
+    + though JB still loads "workflow packages" since low risk for irreproducible code: devtools, usethis, remotes, testthat, reprex
+- can populate description file automatically (see JB's .Rprofile)
+- interesting package to maintain these types of files: [HenrikBengtsson/startup](https://github.com/HenrikBengtsson/startup)
+
+## Day 2, Morning after break
+
+- github etiquette: use `#` in front of numbers to link to issues, words like "Fixes" are keywords that can close issues [see more on github](https://help.github.com/articles/closing-issues-using-keywords/)
+- plan for revisiting analyses/projects (like 10x more than you thought you would)
+- refine and extend! make your code more readable, efficient, resilient, general
+- beware of monoliths! i.e one script and a workspace, much better to break logic and ouput into smaller pieces; divide and conquer; i.e. making figures is separate from modeling
+- make scripts based on the different steps in the analysis pipeline (see slide 17 [slides/day2_slides2_project-api.pdf](slides/day2_slides2_project-api.pdf))
+- make outputs separate based on their uses rather than a giant RData file
+- practice "safe paths"! use `here` package to do this; works on my machine and on yours, also works with knitr and rmarkdown! rmarkdown sets workign directory where .Rmd file is, but `here` can get around this if you have subdirectories
+```{r, eval=FALSE}
+library(here)
+here()
+here("day1_s1_explore-libraries")
+cat(readLines(here("day1_s2_copy-files/","00_filesystem-practice_comfy.R")))
+```
+- we had an excerise of forking a repo and adding code to files along with documentation in the readme.
+- there are R packages that are similar to `make`, such as remake (more to come after lunch)
+
 
 # Q's
 
 -   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
 -   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github_document, is there a way to always generate both? you can "keep md" but can you "keep github_document"? Sort of, but you need to use `rmarkdown::render` (in theory, though JB can't get it to work yet for github_docs...)
 -   why is `fs` package making my Rstudio crash every time I want to view an object created with it? May be related to this [issue](https://github.com/r-lib/fs/issues/58)
+

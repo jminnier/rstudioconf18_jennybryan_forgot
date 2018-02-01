@@ -127,8 +127,23 @@ lookup(knitr::knit)
 ```
 
 -   JB: if you are reporting a bug or requesting an addition, be as specific as possible
+
+Day 2 morning, JB start up files
+--------------------------------
+
 -   re: installing packages after an update: you can install them organically as you go, this is a good way to perform "spring cleaning" (JB and \[@LucyStats\](twitter.com/lucystats) are in favor of this). However, Jim Hester has a package for this, too! [jimhester/autoinst](github.com/jimhester/autoinst) (but maybe try not to break it/find issues ;))
--   
+-   github search for "dotfiles" shows people's repos of dotfiles
+-   very useful links from JB's repo:
+    -   Kevin Ushey blog post on `.Rprofile` [RProfile Essentials](http://kevinushey.github.io/blog/2015/02/02/rprofile-essentials/)
+    -   Kevin's [etc repo](https://github.com/kevinushey/etc) for dotfiles and the like
+    -   Shaun Jackman's [dotfiles repo](https://github.com/sjackman/dotfiles)
+-   examples of good options to turn on:
+    -   `warnPartialMatchAttr = TRUE`, etc = no autocomplete!
+    -   `utils::rc.settings(ipck=TRUE)` = yes autocomplete package names
+-   don't load packages in .Rprofile because you will be using functions other people can't without loading
+    -   though JB still loads "workflow packages" since low risk for irreproducible code: devtools, usethis, remotes, testthat, reprex
+-   can populate description file automatically
+-   interesting package to maintain these types of files: [HenrikBengtsson/startup](https://github.com/HenrikBengtsson/startup)
 
 Q's
 ===
