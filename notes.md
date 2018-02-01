@@ -13,8 +13,8 @@ To use "in building" mirror: `options(repos = c(CRAN = "https://cran.rstudio.com
 Random thoughts
 ===============
 
-Morning - library exploration
------------------------------
+Day 1: Morning - library exploration
+------------------------------------
 
 -   JB has us go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
 -   it's ok that things take a long time
@@ -24,8 +24,8 @@ Morning - library exploration
 -   it helps to know about your R installation and where packages go in order to make a package
 -   new package `fs`, helps us work with file paths. note, don't use paste() to work with file paths like they are strings, they are not!
 
-Mid-morning - file copying and naming, projects
------------------------------------------------
+Day 1: Mid-morning - file copying and naming, projects
+------------------------------------------------------
 
 -   turn of .RData loading and never ask to save .RData
 -   restart R often!
@@ -51,8 +51,8 @@ Most easy option from [happywithgitr](http://happygitwithr.com/existing-github-l
 
     usethis::use_github()
 
-Afternoon - git/github
-----------------------
+Day 1: Afternoon - git/github
+-----------------------------
 
 -   git is scary but you should learn the 3 things you always have to do and just do them over and over until you are comfortable ("get off the beach!")
 -   easier to start from github then go to rstudio (sad)
@@ -79,8 +79,8 @@ Afternoon - git/github
 -   More about github\_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
 -   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
 
-Afternoon
-=========
+Day 1: Afternoon after break
+============================
 
 -   to upload an existing git directory to github without going through all the steps, just do `usethis::use_github()`!!!
 -   JB showing that .R and .Rmd can make same github\_document output
@@ -96,7 +96,7 @@ Afternoon
 -   if you are collaborating on code: commit and push (and pull) often, so that you make small changes that git's troubleshooting push fail algorithm can handle it; "sync to the mothership really often"
 -   also working with binary files like pdf makes this really hard since git can't look inside them to figure out what the problem is. so, don't put them in your repo very often!
 -   use githooks to avoid pushing files that have conflicts (they can look for the markers from the merge conflict)
--   you can search github for code snippets (why have I never done this?), such as: ["llply" user:cran language:R](https://github.com/search?l=r&q=%22llply%22+user%3Acran+language%3AR&ref=searchresults&type=Code&utf8=%E2%9C%93)
+-   you can search github for code snippets (I need to do this more!), such as: ["llply" user:cran language:R](https://github.com/search?l=r&q=%22llply%22+user%3Acran+language%3AR&ref=searchresults&type=Code&utf8=%E2%9C%93); Jim Hester will talk more about this tomorrow
 
 Q's
 ===
