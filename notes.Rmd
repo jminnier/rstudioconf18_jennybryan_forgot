@@ -1,5 +1,5 @@
 ---
-title: "Notes - Things They Forgot to Teach You In R, rstuido::conf18"
+title: "Notes - Things They Forgot to Teach You In R, rstudio::conf18"
 author: "Jessica Minnier"
 date: "1/31/2018"
 output: github_document
