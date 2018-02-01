@@ -6,14 +6,14 @@ Jessica Minnier
 Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
 
 Links:
-------
+======
 
 Materials: [rstd.io/forgot](https://github.com/jennybc/what-they-forgot)
 
 To use "in building" mirror: `options(repos = c(CRAN = "https://cran.rstudio.com/"))`
 
 Random thoughts
----------------
+===============
 
 Day 1: Morning - library exploration
 ------------------------------------
@@ -51,7 +51,9 @@ This has changed since [git 2.9](https://stackoverflow.com/questions/37937984/gi
 
 Most easy option from [happywithgitr](http://happygitwithr.com/existing-github-last.html)
 
-    usethis::use_github()
+``` r
+usethis::use_github()
+```
 
 Day 1: Afternoon - git/github
 -----------------------------
@@ -93,11 +95,13 @@ Day 1: Afternoon after break
 -   You can make your README.md into a webpage by changing settings in GitHub. Go to your repo, click 'Settings', scroll way down to GitHub pages, change Source to Master, and choose a theme. Can add links to other .md files in the same repo by inserting this into README.md file: [displayname](link.md)
 -   Good options for knitr:
 
-        knitr::opts_chunk$set(
-              collapse = TRUE,
-              comment = "#>",
-              out.width = "100%"
-        )
+``` r
+knitr::opts_chunk$set(
+          collapse = TRUE,
+          comment = "#>",
+          out.width = "100%"
+)
+```
 
 -   git can detect simple push conflicts (i.e. you forgot to pull first)
 -   if you are collaborating on code: commit and push (and pull) often, so that you make small changes that git's troubleshooting push fail algorithm can handle it; "sync to the mothership really often"
@@ -106,16 +110,29 @@ Day 1: Afternoon after break
 -   if you have made conflicting commits to your local version and remote version, push will be rejected. Pull first and fix conflicts. If this does not work, consider git reset. If this does not work, consider renaming local repo to borked-repo, pull remote, then selectively copy over new useful files from borked-repo
 -   you can search github for code snippets (I need to do this more!), such as: ["llply" user:cran language:R](https://github.com/search?l=r&q=%22llply%22+user%3Acran+language%3AR&ref=searchresults&type=Code&utf8=%E2%9C%93); Jim Hester will talk more about this tomorrow
 
-Day 2 Morning
--------------
+Day 2 Morning - Jim Hester, searching github
+--------------------------------------------
 
 -   Jim Hester is teaching us how to use github search, for example `read_csv OR read_delim col_type language:R extension:.R` looks for examples of using the `col_type` argument in `read_csv` or `read_delim` functions
 -   if the documentation doesn't answer your questions, use github search to find examples
 -   example search: `user:cran onAttach` will search CRAN packages that use the function `onAttach`
+-   use `user:` field to search CRAN or tidyverse because those users/orgs keep track of all the packages on cran or tidyverse
+-   if you get an error, you can search that error code string in the repo to determine what is causing it
+-   The tidyverse packages typically name internal helpers with a trailing underscore.
+-   JH has a package for this! [jimhester/lookup](github.com/jimhester/lookup)
+
+``` r
+library(lookup)
+lookup(knitr::knit)
+```
+
+-   JB: if you are reporting a bug or requesting an addition, be as specific as possible
+-   re: installing packages after an update: you can install them organically as you go, this is a good way to perform "spring cleaning" (JB and \[@LucyStats\](twitter.com/lucystats) are in favor of this). However, Jim Hester has a package for this, too! [jimhester/autoinst](github.com/jimhester/autoinst) (but maybe try not to break it/find issues ;))
+-   
 
 Q's
 ===
 
 -   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
 -   in the analysis pipeline, if I want to generate an html (or pdf etc) file along with the github\_document, is there a way to always generate both? you can "keep md" but can you "keep github\_document"? Sort of, but you need to use `rmarkdown::render` (in theory, though JB can't get it to work yet for github\_docs...)
--   why is `fs` package making Rstudio crash every time I want to view an object created with it? May be related to this [issue](https://github.com/r-lib/fs/issues/58)
+-   why is `fs` package making my Rstudio crash every time I want to view an object created with it? May be related to this [issue](https://github.com/r-lib/fs/issues/58)
