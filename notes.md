@@ -20,24 +20,24 @@ Day 1: Morning - library exploration
 
 -   JB has us go to issues and put emoji on OS, tests that we've signed into github! also sees how many windows users there are
 -   it's ok that things take a long time
--   make things self explaining, don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
--   organize your files and keep readme up to date!
--   "unless you can keep it current, don't write it"
+-   make things self explaining (good filenames - see https://speakerdeck.com/jennybc/how-to-name-files), don't spend a lot of time writing wordy explainers that you have to maintain and won't want to read later
+-   organize your files and keep your readme up to date!
+-   "unless you can keep it current (maintain it), don't write it"
 -   it helps to know about your R installation and where packages go in order to make a package
--   new package `fs`, helps us work with file paths. note, don't use paste() to work with file paths like they are strings, they are not!
+-   new package `fs` (for 'file system'), helps us work with file paths. note, don't use paste() to work with file paths like they are strings, they are not!
 
 Day 1: Mid-morning - file copying and naming, projects
 ------------------------------------------------------
 
--   turn of .RData loading and never ask to save .RData
--   restart R often!
+-   turn off .RData loading and never ask to save .RData
+-   restart R (Shift-Cmd-F10) often!
 -   no absolute paths
--   use a stable base: `here::here("data","raw-data.csv")` in your project directory, `fs::path_home()`
+-   use a stable base: `here::here("data","raw-data.csv")` in your project directory, or `fs::path_home()`
 -   form paths at runtime relative to a stable base
 -   normalizePath() makes it work on both windows and mac
--   Rstudio set up a mirror for downloading packages **in** the building! What!
--   use `basename` instead of `strsplit` to get name of file (don't have to specify  or /)
--   name files and directories as thing\_thing-info\_thing2 so for instance day\_session\_topic so you can order and deliminate them later
+-   Rstudio set up a mirror for downloading packages **in** the building! Whaaattt!
+-   use `basename` instead of `strsplit` to get name of file from a path (don't have to specify  or /)
+-   name files and directories as thing\_thing-info\_thing2 so for instance day\_session\_topic so you can order and delimit them later
 
 Side note from my own issues in moving this repo to github
 ----------------------------------------------------------
@@ -56,27 +56,31 @@ Most easy option from [happywithgitr](http://happygitwithr.com/existing-github-l
 Day 1: Afternoon - git/github
 -----------------------------
 
--   git is scary but you should learn the 3 things you always have to do and just do them over and over until you are comfortable ("get off the beach!")
+-   git is scary but you should learn the 3 things you always have to do (commit, push, pull) and just do them over and over until you are comfortable ("get off the beach!")
 -   easier to start from github then go to rstudio (sad)
+- if you are more of a visual thinker, you might like useing a graphical front end for git, like SourceTree or GitKraken
 -   when you clone a repo in Rstudio and copy the ssh (or https) into the prompt, then press TAB, it will auto-fill the name of the repo into the next field!
+- if you want to collaborate on someone else's repo, best practice to (1) fork their repo so you have a copy in your GitHub (2) then clone this to your local git repo. This will keep links, so that later you can push your changes to your GitHub repo and then issue a pull request to original owner.
 -   in git commit: two yellow question marks: local file git has never seen before
 -   jenny commits her .Rproj (this is controversial)
--   intermediate step "staging" tells git you do want these files to be part of the next commit, this way you can commit files separately
+-   intermediate step "staging" tells git you do want these files to be part of the next commit, this way you can commit files separately. 
+- Staging - put things that are ready to mail in a box, Commit - mail the whole box.
 -   use conventional file extensions so that github can show you customized diffs
--   jenny thinks putting derived products in version control is a good idea (i.e. html from Rmds)
+-   jenny thinks putting derived products in version control is a good idea (i.e. html from Rmds), but not binary files (word files, pdfs)
 -   jim hester will show us how github makes it easy to search code
 -   when using workbook button from .R files we get a html report (jenny says html maybe not best option, more later)
+- note to knit to pdf, start by installing tinytex package, then run tinytex::install_tinytex, then you are able to knit to PDF
 -   oh yeah, html does not look good on github =( too raw!
 -   mullet: what you need to write (.R, .Rmd) = this business in front; what you want to read/see (.html, .md) = party in the back (or is it the other way around?)
--   .html is not useful but .md is useful for github; use YAML:
+-   .html is not useful but .md is very useful for github; use YAML:
 
         #' ---
         #' output: github_document
         #' ---
 
 -   now github will render the resulting .md file this to look pretty nice!
--   source only hard-liners say don't version control output (only source code). but this makes it really useful to see what the output looks like and how it changes.
--   JB takeaway 1: if you want to make your stuff immediately consumable, rending to markdown and commiting that at the same time as the R file, gives something others can look at with little to no effort (be kind and be realistic!)
+-   source: only hard-liners say don't version control output (only source code). but having .md files or .html files makes it really useful to see what the output looks like and how it changes.
+-   JB takeaway 1: if you want to make your stuff immediately consumable, rendering to markdown and commiting that at the same time as the R file, gives something others can look at with little to no effort (be kind and be realistic!)
 -   JB takeaway 2: markdown is vastly more useful than .html and .pdf (on github)
 -   More about github\_documents [here](http://rmarkdown.rstudio.com/github_document_format.html)
 -   files that look nice in github: .csv, .png, .md, see the browsability section of happywithgitr
@@ -86,6 +90,7 @@ Day 1: Afternoon after break
 
 -   to upload an existing git directory to github without going through all the steps, just do `usethis::use_github()`!!!
 -   JB showing that .R and .Rmd can make same github\_document output
+- You can make your README.md into a webpage by changing settings in GitHub. Go to your repo, click 'Settings', scroll way down to GitHub pages, change Source to Master, and choose a theme. Can add links to other .md files in the same repo by inserting this into README.md file: [displayname](link.md)
 -   Good options for knitr:
 
         knitr::opts_chunk$set(
@@ -94,10 +99,11 @@ Day 1: Afternoon after break
               out.width = "100%"
         )
 
--   git can detect simmple push conflicts (i.e. you forgot to pull first)
+-   git can detect simple push conflicts (i.e. you forgot to pull first)
 -   if you are collaborating on code: commit and push (and pull) often, so that you make small changes that git's troubleshooting push fail algorithm can handle it; "sync to the mothership really often"
--   also working with binary files like pdf makes this really hard since git can't look inside them to figure out what the problem is. so, don't put them in your repo very often!
+-   also working with binary files like pdf makes this really hard since git can't look inside them to figure out what the problem is. so, don't put them in your repo very often! (.gitignore)
 -   use githooks to avoid pushing files that have conflicts (they can look for the markers from the merge conflict)
+- if you have made conflicting commits to your local version and remote version, push will be rejected. Pull first and fix conflicts. If this does not work, consider git reset. If this does not work, consider renaming local repo to borked-repo, pull remote, then selectively copy over new useful files from borked-repo
 -   you can search github for code snippets (I need to do this more!), such as: ["llply" user:cran language:R](https://github.com/search?l=r&q=%22llply%22+user%3Acran+language%3AR&ref=searchresults&type=Code&utf8=%E2%9C%93); Jim Hester will talk more about this tomorrow
 
 Q's
