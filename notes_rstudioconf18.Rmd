@@ -1,0 +1,19 @@
+---
+title: "Notes - Rstudio::conf 2018"
+author: "Jessica Minnier"
+date: "2/2/2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+          collapse = TRUE,
+          comment = "#>",
+          out.width = "100%"
+)
+library(tidyverse)
+```
+
+# Keynote - Di Cook
+
+- 
