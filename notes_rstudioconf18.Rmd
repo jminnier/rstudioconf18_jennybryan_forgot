@@ -56,4 +56,70 @@ library(tidyverse)
 
 ## Alan Dipert - Make shiny fast by doing as little work as possible
 
-- 
+- optimization loop method = benchmark -> analyze -> recommend (estimation of work/time needed) -> optimize
+- analysis = identify the one slowest thing, optimize that first! use `profvis` (to view `Rprof` output)
+- beware `group_by()` since it can make other functions like `filter()` slower, since it has to iterate over the groups
+- plot caching is coming soon to shiny! `plotCache`
+- readRDS compresses by default so set `compress=FALSE` to make it faster
+
+## Sean Lopp - Scaling Shiny
+
+- load testing for shiny using existing tools turned out to be difficult due to "shiny magic"
+- Rstudio is working on tools to simulate heavy use of an app with a "real" load test -- development in progress!
+- discusses how to simulate load tests of many users, shows results on a dashboard
+- doing a live load test of 10,000 users (20 note cluster of c4.2xlarge 8 cores) --> metrics dashboard shows # visitors = 10k, and app laods and runs well! (impressive with this internet!)
+
+# Case Study
+
+## JD Long - The unreasonable effectiveness of empathy 
+
+- talking about "deep neural networks" inside of our head!
+- we each have an internal algorithm that gathers info and trains a model
+- children under 4 can't separate what they know vs what other people know
+- we don't remember learning empathy but we all did at some point
+- agile programming is an example of hacking empty, force us to think about the user's perspective
+- **data = people** in many cases!
+- our story we present in aggregate (i.e. maps, summary plots) is not the story of individuals, i.e. if we show a picture of a person or a plot showing individual lives **we evoke empathy, and the story is more real**
+- your business data is somebody's paycheck!
+- we are hardwired to have empathy in stories that are verbal narratives - Steven Jay Gould
+- other examples of "empathy hacks" -- i.e. ann taylor develops products for an imaginary ann taylor (with a house, dog, etc all described)
+- limitations: empathy doesn't work for "victimless" problems, may be biased toward certain groups
+
+# Tidyverse
+
+## Carson Sievert - Creating interactive web graphics suitable for exploratory data analysis 
+
+- plotly + crosstalk for interactive graphics that interact with each other
+- interactivity is only useful when we can iterate easily
+- Majumder 2013 on making inference based on plots (+ other ref I didn't catch)
+- interactivity can augment exploration
+- use `highlight()` around `ggplotly` to highlight certain eleemnts/lines/shapes
+- these are standalone html that do not need web server, but can also work with shiny
+- if you have a lot of panels look into trelliscopejs which works with plotly
+- plotly.js handles the summarization/aggregation of data
+- example of using dendogram clustering to group data on other plots
+
+## Emily Riederer - tidycf: Turning analysis on its head by turning cashflows on their sides 
+
+- `library(tidycf)` package for tidying up cashflow data in business
+- tidy cashflows to streamline workflow to allow advanced analytics like bootstrapping error bars
+- "very opinionated R package"
+- empathy + empowerment + engagement = values learned from tidyverse and used in their design
+- empathy thinks about the user's experience
+- important to engage users with possiblity to contribute!
+
+## Max Kuhn - Modeling in the tidyverse 
+
+- goals of tidy modeling: promote tenets of the tidyverse (see manifesto), encourage empriical validation and good methodology, smooth out diverse interfaces, enable wider variety of methodologies
+- embrace resampling! protects against poor methodology
+- comparing models: use relevent loss functions, don't rely on p-values
+- basically thinking of loss functions as effect sizes
+- bayesian ROPE estimates = assess practical differences
+- you get more honest estimates from CV empirical estimates of prediction, than p-values from model output
+- smooth out diverse interfaces: can fit multiple kinds of models with one interface, not thinking about all the different packages you need
+- `library(parsnip)` for generic model specification, declaration of varaibles with `recipes`
+
+
+
+
+
