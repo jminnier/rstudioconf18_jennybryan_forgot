@@ -14,6 +14,42 @@ knitr::opts_chunk$set(
 library(tidyverse)
 ```
 
-# Keynote - Di Cook
+# Keynote - Di Cook - [slides](http://www.dicook.org/files/rstudio/)
+
+- "statistics starts once you have tidy data"
+- ggplot2 makes plots a type of statistic (function of the data)
+- compare data plots with null plots (i.e. `infer` package!)
+- people make inference based on plots without a firm foundation
+- roschach protocol: can you pick the real data from a field of null plots?
+- cookie monster teaches us about graphical inference: [video](https://youtu.be/rEHKm3Z1zUE)
+- `library(nullabor)` to calculate p-value = probability the data plot is "extreme", as well as power calculations
+- hypothesis for data plots comes from the type of plot being used, adding data to plot makes it a test statistic
+- hypotheses never come from looking at the data first!! only from underlying question
+- visual inference protocol gives some "teeth" to discoveries, quantify significance
+- if structure is not visible, prevent conclusions from small differences compared to differences seen in null data
+- apophenia = imagining things in plots like looking at the clouds for animals (avoid this with visual inference protocol)
+- we need a protocol for interactive graphics, how do we incorporate null plots to avoid incorrect inference?
+- variability in people's ability to detect visual differences---maybe there are super visual detectors
+
+# Shiny
+
+## Joe Cheng - Scaling Shiny apps with async programming
+
+- async lets shiny perform long-running tasks asynchronously, start task but don't wait around for result
+- `library(future)` wrap `future()` around code runs it in separate R process, freeing up original R process
+- `library(promises)` lets you access results from async tasks
+- these are not shiny-specific
+- need to chain an operation using `%...>%` onto a promise = promise pipe
+- use promise pipe to "push subsequent computations into the future", delayed pipe
+- hooray nobody has to wait for serial execution
+- `install_github("rstudio/shiny@async")` - plz help testing!
+
+## Winston Cheng - Developing robust shiny apps with regression testing
+
+- manual testing takes a lot of time, is inconsistent, often forgotten, while automated testing is really hard due to the web browser, simulating interactions, graphical elements testing
+- 
+
+
 
 - 
+
