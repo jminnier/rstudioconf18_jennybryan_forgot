@@ -212,6 +212,29 @@ tibble(
 - `pmap` can iterate over every row of a data frame, including and most especially tibbles where you have list columns
 - after the break we will have "choose your own adventure" time
 
+## Day 2 afternoon - choose your own adventure
+
+- I chose to make a [dotfiles repo](https://github.com/jminnier/dotfiles)
+- JB made a gallery of the O'Rly? covers [here](https://github.com/jennybc/orly-full-res#readme) along with hyperlinks!
+
+```{r}
+fig_files <- c(
+"https://github.com/jennybc/orly-full-res/blob/master/changinstuff-big.png",
+"https://github.com/jennybc/orly-full-res/blob/master/uninformativegitcommit-big.png")
+fig_files_smaller <- gsub("(^.*)(\\.png$)", "\\1-smaller\\2", fig_files)
+
+tags <- sprintf("<a href=\"%s\"><img src=\"%s\"></a>",
+                fig_files, fig_files_smaller)
+cat(tags)
+```
+- also explored the weights of cats at SF SPCA, and found the [fattest cat](https://github.com/jennybc/fattest-cat)
+```{r, eval=FALSE}
+url <- "https://raw.githubusercontent.com/jennybc/fattest-cat/master/fattest-cat.R"
+rfile <- basename(url)
+download.file(url, rfile)
+source(rfile)
+```
+
 # Q's
 
 -   what about versioning data? for small to medium you can easily use github, might need to just keep it in a separate repo and git that, or might need to use gitfs for large file systems
