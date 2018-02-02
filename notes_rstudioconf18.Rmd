@@ -40,16 +40,20 @@ library(tidyverse)
 - `library(promises)` lets you access results from async tasks
 - these are not shiny-specific
 - need to chain an operation using `%...>%` onto a promise = promise pipe
-- use promise pipe to "push subsequent computations into the future", delayed pipe
+- **use promise pipe to "push subsequent computations into the future"**, delayed pipe, avoid waiting on other tasks
 - hooray nobody has to wait for serial execution
 - `install_github("rstudio/shiny@async")` - plz help testing!
 
-## Winston Cheng - Developing robust shiny apps with regression testing
+## Winston Chang - Developing robust shiny apps with regression testing
 
 - manual testing takes a lot of time, is inconsistent, often forgotten, while automated testing is really hard due to the web browser, simulating interactions, graphical elements testing
+- `library(shinytest)` to the rescue
+- snapshot testing lets you "snapshot" states and save the script for testing
+- snapshot makes json if inputs, outputs, exported values; also screenshot
+- compare current states vs expected states = **shows a kind of diff viewer of the json**, as well as two screenshots with diffs highlighted (also slider), just like github!
+- basically any upgrading can cause issues, so run tests often!
+- limitations: recorder won't capture htmlwidgets (ie plotly or DT or leaflet), works best with standard shiny inputs and outputs; also, dynamic external data source may be harder to test
+
+## Alan Dipert - Make shiny fast by doing as little work as possible
+
 - 
-
-
-
-- 
-
