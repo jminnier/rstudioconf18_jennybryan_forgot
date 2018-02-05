@@ -203,6 +203,56 @@ Mara Averick - Contributing to the tidyverse
 -   read tidyverse style guide
 -   magic of `reprex`! making it easier to do is huge, help others learn to use it
 
+Teaching
+========
+
+Ramnath Vaidyanathan - Data-driven curriculum development
+---------------------------------------------------------
+
+-   can we determine what causes students to abandon an exercise and learn from this? important predictors: instruction/course length, also program prerequisites completed
+-   need content guidelines, provide instructor metrics
+
+Colin Rundel - Kaggle in the classroom: using R and GitHub to run predictive modeling competitions [slides](https://github.com/rundel/Presentations/tree/master/RStudioConf2018)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-   statistical computing for undergrads vs masters
+-   use Rstudio server in the department, makes it much easier to distribute data and troubleshoot (not everyone is running things on their own computer)
+-   core focus on reproducbility -- must be done on R markdown, turned in by github, one organization per class, one repo/team/assigment
+-   continuous integration tools: automated grading framework, but this doens't work for larger open ended data analysis projects; use Wercker (less popular in Travis)
+-   [rundel/ghclass](https://github.com/rundel/ghclass) - interfaces with day to day mechanical things in github, interfaces with `gh` package
+-   use automatic testing -- check .Rmd runs, check they have the correct set of files at the end
+-   `styler` or `lintr` can automatically clean up issues like indentations, automatic pull requests for formatting code
+-   use rocker/tidyverse within wercker; as opposed to travis which outputs a long text file which are intimidating, wercker gives more friendly output, R scripts, etc
+-   goal: automatic scoring for cleaning, modeling; diagnostics and useful feedback
+-   leverage competitiveness = leaderboard
+-   NYC open data - parking violations, super messy! good learning material; spacial data
+-   use `plumber` package to make an API that interacts with wercker and SQLite backend
+
+Chester Ismay - Something old, something new, something borrowed, something blue: Ways to teach data science (and learn it too!) [slides](http://bit.ly/rstudioconf18)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-   introduce data and computation novices to data science, data modeling, statistical inference
+-   freely available online textbook moderndive.com
+-   teach ggplot2 on the chalkboard!
+-   use tactile simulation to teach sampling distributions
+-   don't just show code immediately, need tactile examples to show where it comes from (i.e. red and white balls in a bowl); bowl not an urn! \#statsjokes
+-   datacamp gives you immediate feedback, interactive courses
+-   moderndive uses bookdown, github, netlify
+-   be nice to beginners!!
+
+Marco Blume - Training an army of new data scientists \[given without slides\]
+------------------------------------------------------------------------------
+
+-   teach everyone in a company how to basic R, no more excel; including executives and database managers
+-   teach only the very basics -- just a few functions, dplyr only (no tidyr or purrr or anything fancy)
+-   no base r, base r doesn't exist, base r is for experts!!
+-   teach ggplot but only basics, ggplot+geom, nothing fancy, if you want to be fancy use `facet_wrap`
+-   emphasis on tidy data, subject matter experts now rejecting any data that is not tidy
+-   R is like "ExcelPlus"
+-   datacamp is key, people have to learn on their own
+-   admin data in datacamp is brutal, so they wrote their own package to export it in tidy format
+-   use tidyverse for people who have not done any data science, sell it as power excel, once they produce a markdown let them stop and teach them further only if they want to go further
+
 Random observations
 ===================
 
