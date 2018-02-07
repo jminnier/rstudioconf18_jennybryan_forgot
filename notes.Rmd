@@ -124,7 +124,7 @@ knitr::opts_chunk$set(
 - use `user:` field to search CRAN or tidyverse because those users/orgs keep track of all the packages on cran or tidyverse
 - if you get an error, you can search that error code string in the repo to determine what is causing it
 - The tidyverse packages typically name internal helpers with a trailing underscore.
-- JH has a package for this! [jimhester/lookup](github.com/jimhester/lookup)
+- JH has a package for this! [jimhester/lookup](https://github.com/jimhester/lookup)
 ```{r, eval=FALSE}
 library(lookup)
 lookup(knitr::knit)
@@ -133,7 +133,7 @@ lookup(knitr::knit)
 
 ## Day 2 morning, JB start up files
 
-- re: installing packages after an update: you can install them organically as you go, this is a good way to perform "spring cleaning" (JB and [@LucyStats](twitter.com/lucystats) are in favor of this). However, Jim Hester has a package for this, too! [jimhester/autoinst](github.com/jimhester/autoinst) (but maybe try not to break it/find issues ;))
+- re: installing packages after an update: you can install them organically as you go, this is a good way to perform "spring cleaning" (JB and [@LucyStats](twitter.com/lucystats) are in favor of this). However, Jim Hester has a package for this, too! [jimhester/autoinst](https://github.com/jimhester/autoinst) (but maybe try not to break it/find issues ;))
 - github search for "dotfiles" shows people's repos of dotfiles
 - very useful links from JB's repo:
     + Kevin Ushey blog post on `.Rprofile` [RProfile Essentials](http://kevinushey.github.io/blog/2015/02/02/rprofile-essentials/)
@@ -162,7 +162,7 @@ here()
 here("day1_s1_explore-libraries")
 cat(readLines(here("day1_s2_copy-files/","00_filesystem-practice_comfy.R")))
 ```
-- we had an excerise of forking a [repo](github.com/jennybc/packages-report) and adding code to files along with documentation in the readme.
+- we had an excerise of forking a [repo](https://github.com/jennybc/packages-report) and adding code to files along with documentation in the readme.
 - there are R packages that are similar to `make`, such as remake (more to come after lunch)
 
 ## Day 2 Afternoon - make-like, live purrr coding, API example
@@ -171,7 +171,7 @@ cat(readLines(here("day1_s2_copy-files/","00_filesystem-practice_comfy.R")))
 - you can ammend commits if you haven't pushed yet
 - github can show you diffs of .png files, useful for seeing progression of plots
 - having projects in smaller pieces allows people to come into the code at the middle
-- JB's [repo solution](github.com/jennybc/packages-report-EXAMPLE)
+- JB's [repo solution](https://github.com/jennybc/packages-report-EXAMPLE)
 - the table of file organization in JB's [readme](https://github.com/jennybc/packages-report-EXAMPLE/blob/master/README.Rmd) is quite useful
 - Kirill Muller is telling us about `drake`, [repo](https://github.com/krlmlr/drake-pitch) and [slides](https://krlmlr.github.io/drake-pitch/)
 - drake will look at your code and run what needs to be updated
