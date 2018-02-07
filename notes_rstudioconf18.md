@@ -3,6 +3,7 @@ Notes - Rstudio::conf 2018
 Jessica Minnier
 2/2/2018
 
+<!------ Thanks for any contributions! Please edit the .Rmd, the .md is a byproduct of the .Rmd! --------->
 Keynote - Di Cook - [slides](http://www.dicook.org/files/rstudio/)
 ==================================================================
 
@@ -156,7 +157,7 @@ Giora Simchoni - Five packages in five weeks - from boredom to contribution via 
 -   Giora is not into DNA microarrays, but he IS into Beyonce
 -   you need to start a blog! use blogdown
 -   lots of great blog posts, including [ave mariah](http://giorasimchoni.com/2017/12/10/2017-12-10-ave-mariah/) = vocal range of pop singers
--   [gsimchoni/yrbss](github.com/gsimchoni/yrbss) no one should go through the pain Giora went through to get data from some crazy API with complex survey data, so he made a package (using H Parker, K Brobam, H Wickham, and Stack Overflow info)
+-   [gsimchoni/yrbss](https://github.com/gsimchoni/yrbss) no one should go through the pain Giora went through to get data from some crazy API with complex survey data, so he made a package (using H Parker, K Brobam, H Wickham, and Stack Overflow info)
 -   `kandinsky` package: convert data frame to kandinsky-like painting
 -   `mocap` package: helps interfacing with motion picture files, used for brain research!
 -   `CastleOfR`: excercises with R as a game, escape from the castle

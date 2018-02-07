@@ -3,6 +3,7 @@ Notes - Things They Forgot to Teach You In R, rstudio::conf18
 Jessica Minnier
 1/31/2018 and 2/1/2018
 
+<!------ Thanks for any contributions! Please edit the .Rmd, the .md is a byproduct of the .Rmd! --------->
 Thanks to the excellent contributions (via `pull` request!) from classmate [Peter Higgins!](https://github.com/higgi13425)
 
 Links:

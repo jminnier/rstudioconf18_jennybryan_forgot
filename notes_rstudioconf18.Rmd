@@ -5,6 +5,8 @@ date: "2/2/2018"
 output: github_document
 ---
 
+<!------ Thanks for any contributions! Please edit the .Rmd, the .md is a byproduct of the .Rmd! --------->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
           collapse = TRUE,
